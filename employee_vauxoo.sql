@@ -3,17 +3,17 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
+CREATE TABLE employee_department (
+	id serial PRIMARY KEY NOT NULL UNIQUE,
+	name varchar(255) NOT NULL,
+	description varchar(255),
+);
+
 CREATE TABLE employee (
  	id serial PRIMARY KEY NOT NULL UNIQUE,
 	first_name varchar(255) NOT NULL,
 	last_name varchar(255),
 	departament_id int references employee_department(id),
-);
-
-CREATE TABLE employee_department (
-	id serial PRIMARY KEY NOT NULL UNIQUE,
-	name varchar(255) NOT NULL,
-	description varchar(255),
 );
 
 CREATE TABLE employee_hobby (
