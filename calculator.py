@@ -12,5 +12,5 @@ class CalculatorClass(object):
         """
         Function to sum the numbers from the list
         """
-        sum_total = reduce(lambda x,y: x+y,num_list)
+        sum_total = reduce(lambda x, y: x+y, num_list)
         return sum_total
