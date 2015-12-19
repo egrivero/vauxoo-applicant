@@ -3,7 +3,6 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
-
 CREATE TABLE employee (
  	id serial PRIMARY KEY NOT NULL UNIQUE,
 	first_name varchar(255) NOT NULL,
@@ -31,8 +30,14 @@ CREATE TABLE employee_hobby_rel (
 ALTER TABLE employee
 ADD COLUMN departament_id int references employee_department(id);
 
+ALTER TABLE employee
+ADD COLUMN boss_id int references employee(id);
+
 ALTER TABLE employee_hobby_rel
 ADD CONSTRAINT UniqueEmployeeHobby UNIQUE(hobby_id, employee_id);
+
+ALTER TABLE employee
+ADD CONSTRAINT CheckEmployeeBoss CHECK(id <> boss_id);
 
 INSERT INTO employee_department(name, description)
 VALUES ('Tecnologia', 'Tecnologia de la informacion'),('Cuentas Por Cobrar','Cobranzas'),('Cuentas Por Pagar','Pagos'),('Ventas','Ventas'),('Auditoria','Auditoria'),('Recursos Humanos','RRHH');
