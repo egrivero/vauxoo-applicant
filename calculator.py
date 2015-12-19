@@ -1,16 +1,16 @@
 """
-Your module documentation here
+Module with Class Calculator  and function to sum
 """
 
 
 class CalculatorClass(object):
     """
-    Your class documentation here
+    Class Calculator
     """
 
     def sum(self, num_list):
         """
-        Your method documentation here
+        Function to sum the numbers from the list
         """
-        # your sum code here
-        return "not implement yet"  # Remove this dummy line
+        sum_total = reduce(lambda x,y: x+y,num_list)
+        return sum_total
